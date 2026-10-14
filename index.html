@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkyHaul Air Cargo | Fast air freight, priced upfront</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#home"><img src="images/logo.svg" alt="SkyHaul Air Cargo" height="46"></a>
+  <nav><a href="#about">About</a><a href="#services">Services</a><a href="#quote">Get a quote</a><a href="#track">Track</a><a href="#dashboard">Dashboard</a><a href="#contact">Contact</a></nav>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div>
+    <h1>SkyHaul Air Cargo</h1>
+    <p class="purpose">Urgent cargo, flown out on the next flight.</p>
+    <p>SkyHaul Air Cargo books space on passenger and freighter flights for exporters, pharma and e-commerce firms. You see the price before you book and the status until it lands.</p>
+    <a class="btn" href="#quote">Get Started</a>
+    <a class="btn ghost" href="#services">See services</a>
+  </div>
+  <svg class="route" viewBox="0 0 420 150" role="img" aria-label="Flight routes: Mumbai, Delhi, Dubai">
+    <path d="M30 110 Q120 10 215 50 T390 40" fill="none" stroke="#FF6B2C" stroke-width="4" stroke-dasharray="3 10" stroke-linecap="round"/>
+    <g fill="#EEF3F8"><circle cx="30" cy="110" r="9"/><circle cx="215" cy="50" r="9"/><circle cx="390" cy="40" r="9"/></g>
+    <g fill="#EEF3F8" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600"><text x="14" y="136">Mumbai</text><text x="190" y="32">Delhi</text><text x="360" y="68">Dubai</text></g>
+  </svg>
+</section>
+
+<section id="about">
+  <h2>About the business</h2>
+  <div class="cols">
+    <p><strong>What we do.</strong> We book cargo space with airlines, handle documents, customs and airport transfers, and deliver to the consignee's door.</p>
+    <p><strong>Target customers.</strong> Pharma and electronics exporters, fashion and e-commerce brands, and companies with urgent spare parts.</p>
+    <p><strong>Service area.</strong> Mumbai, Delhi, Chennai, Bengaluru and Ahmedabad airports, with lanes to Dubai, Singapore, Frankfurt and London.</p>
+    <p><strong>Key value proposition.</strong> Fixed upfront pricing, fast customs clearance and one contact person for every shipment.</p>
+  </div>
+  <p class="note">Our handling follows safety and cargo rules from <a href="https://www.dgca.gov.in" target="_blank" rel="noopener">DGCA</a>, India's aviation authority. We work with our airport partner <a href="https://www.aaicargo.com" target="_blank" rel="noopener">AAI Cargo</a> for domestic cargo terminals.</p>
+</section>
+
+<section id="services">
+  <h2>Services and prices</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Service</th><th>Description</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr><td>Standard Air Freight</td><td>Delivery in about 3 days, best value</td><td>Base rate per kg</td></tr>
+      <tr><td>Express Air Freight</td><td>Delivery in about 2 days, priority loading</td><td>1.4 x base rate</td></tr>
+      <tr><td>Priority Next Flight</td><td>Next available flight, for urgent cargo</td><td>1.9 x base rate</td></tr>
+      <tr><td>Temperature-Controlled</td><td>Pharma and perishables, 2 to 8 °C</td><td>₹40 extra per kg</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Rates depend on the route. <a href="#quote">Calculate your cost</a> or <a href="#contact">send an enquiry</a>.</p>
+</section>
+
+<section id="quote" class="panel">
+  <h2>Air freight cost calculator</h2>
+  <p>Airlines charge by the higher of actual weight and volume weight (L x W x H in cm, divided by 6000). We do that sum for you.</p>
+  <form id="calcForm" class="grid">
+    <label>Route <select id="route"></select></label>
+    <label>Service <select id="service"><option value="1">Standard</option><option value="1.4">Express</option><option value="1.9">Priority</option></select></label>
+    <label>Actual weight (kg) <input id="kg" type="number" min="1" value="120" required></label>
+    <label>Length (cm) <input id="l" type="number" min="1" value="80" required></label>
+    <label>Width (cm) <input id="w" type="number" min="1" value="60" required></label>
+    <label>Height (cm) <input id="h" type="number" min="1" value="50" required></label>
+    <div class="full"><button class="btn" type="submit">Calculate cost</button></div>
+  </form>
+  <div id="result" aria-live="polite"></div>
+</section>
+
+<section id="track" class="panel">
+  <h2>Track your shipment</h2>
+  <p>Enter your shipment ID to see its status. Try <b>SKY1001</b>, <b>SKY1002</b>, <b>SKY1003</b> or <b>SKY1004</b>.</p>
+  <form id="trackForm" class="inline">
+    <label for="sid">Shipment ID</label>
+    <input id="sid" placeholder="e.g. SKY1001" autocomplete="off" required>
+    <button class="btn" type="submit">Track</button>
+  </form>
+  <div id="trackResult" aria-live="polite"></div>
+</section>
+
+<section id="dashboard">
+  <h2>Operations dashboard</h2>
+  <p>What the manager needs to know today: how much we flew, how reliable we are and where delays hurt.</p>
+  <div class="kpis" id="kpis"></div>
+  <h3>Tonnes flown per month</h3>
+  <div class="chart" id="chart" role="img" aria-label="Bar chart of tonnes flown per month"></div>
+  <p class="note">Delayed shipment? <a href="#track">Track an order by shipment ID</a> to see where it is. Late shipments often start at customs, so check <a href="https://www.icegate.gov.in" target="_blank" rel="noopener">ICEGATE</a>.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact and enquiry</h2>
+  <div class="cols">
+    <div>
+      <p><strong>Email:</strong> <a href="mailto:cargo@skyhaul.example">cargo@skyhaul.example</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+916201631046">+91 62016 31046</a></p>
+      <p><strong>Office:</strong> D-5, Yogishwar Co-op Housing Society, Novino Tarsali Rd, Padam Park Society, Tarsali, Vadodara, Gujarat 390009. <a href="https://www.google.com/maps/search/?api=1&query=D-5+Yogishwar+Co-op+Housing+Society+Novino+Tarsali+Rd+Padam+Park+Society+Tarsali+Vadodara+Gujarat+390009" target="_blank" rel="noopener">Open in Google Maps</a></p>
+      <p><strong>Industry standards:</strong> see <a href="https://www.iata.org/en/programs/cargo/" target="_blank" rel="noopener">IATA Cargo</a> for dangerous goods and labelling rules.</p>
+    </div>
+    <form action="mailto:cargo@skyhaul.example" method="post" enctype="text/plain" class="stack">
+      <label>Name <input name="name" required></label>
+      <label>Cargo and route <textarea name="enquiry" rows="3" placeholder="e.g. 300 kg medicines, Mumbai to Dubai" required></textarea></label>
+      <button class="btn" type="submit">Send enquiry</button>
+    </form>
+  </div>
+</section>
+</main>
+<footer>
+  <p class="quick"><b>Quick links:</b>
+    <a href="#services">Our services</a>
+    <a href="#contact">Contact us</a>
+    <a href="#track">Track an order</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=D-5+Yogishwar+Co-op+Housing+Society+Novino+Tarsali+Rd+Padam+Park+Society+Tarsali+Vadodara+Gujarat+390009" target="_blank" rel="noopener">Our location on Google Maps</a>
+    <a href="https://www.dgca.gov.in" target="_blank" rel="noopener">DGCA aviation authority</a>
+    <a href="https://www.aaicargo.com" target="_blank" rel="noopener">Partner: AAI Cargo</a>
+  </p>
+  <p>© 2026 SkyHaul Air Cargo. Class exercise project.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
